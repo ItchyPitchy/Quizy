@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-export default function Counter ({setCounter, handleSubmit, duration}) {
+export default function Counter ({setCounter, duration, handleSubmit}) {
   const [count, setCount] = useState(duration);
 
   const createInterval = () => setInterval(() => {
@@ -9,14 +9,14 @@ export default function Counter ({setCounter, handleSubmit, duration}) {
   }, 1000)
 
   useEffect(() => {
-    if (count === 0) {
-      handleSubmit();
-    }
-  }, [count])
-
-  useEffect(() => {
     setCounter(createInterval());
   }, [])
+  
+  useEffect(() => {
+    if (count === 0) {
+      handleSubmit(true);
+    }
+  }, [count])
 
   return (
     <div>

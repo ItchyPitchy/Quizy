@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { GameContext } from "../contexts/GameContext";
+import { GameContext } from "../../../contexts/GameContext";
 
 export default function Settings() {
   const { setSettings } = useContext(GameContext);
@@ -22,9 +22,8 @@ export default function Settings() {
       data[pair[0]] = pair[1];
     }
 
-    console.log(data)
     setSettings(data);
-    history.push("./play")
+    history.push("./play");
   };
 
   useEffect(() => {
