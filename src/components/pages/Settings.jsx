@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { GameContext } from "../../../contexts/GameContext";
+import { GameContext } from "../../contexts/GameContext";
 
 export default function Settings() {
-  const { setSettings } = useContext(GameContext);
+  const { setSettings, setCategory } = useContext(GameContext);
   const history = useHistory();
   const [categories, setCategories] = useState([]);
   const [timer, setTimer] = useState(30);
@@ -18,13 +18,18 @@ export default function Settings() {
     const formData = new FormData(e.currentTarget);
     const data = {};
 
-    for (const pair of formData.entries()) {
-      data[pair[0]] = pair[1];
+    for (const [key, value] of formData.entries()) {
+      data[key] = value;
     }
 
     setSettings(data);
     history.push("./play");
   };
+
+  const changeCategory = (e) => {
+    const selectedCategory = e.target.options[e.target.selectedIndex];
+    setCategory(selectedCategory.text.toLowerCase());
+  }
 
   useEffect(() => {
     fetch("https://opentdb.com/api_category.php")
@@ -37,8 +42,8 @@ export default function Settings() {
     <div>
       <form action="./play" onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="category-select">Select Category:</label>
-        <select name="category" id="category-select">
-          <option value="">Any Category</option>
+        <select onChange={changeCategory} name="category" id="category-select">
+          <option value="">Any</option>
           {categories.map((category, index) => (
             <option key={index} value={category.id}>
               {category.name}

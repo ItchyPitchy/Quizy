@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import Counter from "../../common/Counter";
-import Question from "../../common/Question";
-import { GameContext } from "../../../contexts/GameContext";
+import Counter from "../common/Counter/Counter";
+import Question from "../common/Question/Question";
+import { GameContext } from "../../contexts/GameContext";
 import { Redirect } from "react-router-dom";
 
 export default function Play() {
@@ -29,7 +29,7 @@ export default function Play() {
       .then((res) => res.json())
       .then((data) => setQuestions(data.results))
       .catch((err) => console.error(err));
-  }, []);
+  }, [settings, setQuestions]);
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Option from "./Option";
+import Option from "../Option/Option";
 
 export default function Options({ questionData, currentQuestion }) {
   const [options, setOptions] = useState([]);
@@ -11,7 +11,7 @@ export default function Options({ questionData, currentQuestion }) {
       data.splice(randNum, 0, questionData.correct_answer);
       return data;
     })
-  }, [questionData])
+  }, [questionData, options.length])
 
   return (
     <div>

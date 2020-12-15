@@ -10,13 +10,13 @@ export default function Counter ({setCounter, duration, handleSubmit}) {
 
   useEffect(() => {
     setCounter(createInterval());
-  }, [])
+  }, [setCounter])
   
   useEffect(() => {
     if (count === 0) {
       handleSubmit(true);
     }
-  }, [count])
+  }, [count, handleSubmit])
 
   return (
     <div>
