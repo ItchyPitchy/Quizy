@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
+import { GameContext } from "../../contexts/GameContext";
 import Counter from "../common/Counter/Counter";
 import Question from "../common/Question/Question";
-import { GameContext } from "../../contexts/GameContext";
-import { Redirect } from "react-router-dom";
+import { Main } from "../common/Styles/Styles";
 
 export default function Play() {
   const { settings, questions, setQuestions, answers, setAnswers } = useContext(
@@ -32,7 +33,7 @@ export default function Play() {
   }, [settings, setQuestions]);
 
   return (
-    <div>
+    <Main>
       {questions && (
         <div>
           {currentQuestion === questions.length ? (
@@ -54,6 +55,6 @@ export default function Play() {
           )}
         </div>
       )}
-    </div>
+    </Main>
   );
 }

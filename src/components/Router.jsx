@@ -8,7 +8,7 @@ import Settings from "./pages/Settings";
 import Stats from "./pages/Stats";
 
 export default function Router() {
-  const [category, setCategory] = useState("any");
+  const [category, setCategory] = useState("Any");
   const [questions, setQuestions] = useState(null);
   const [answers, setAnswers] = useState([]);
   const [settings, setSettings] = useState({category: "", difficulty: "", timer: "30"});

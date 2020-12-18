@@ -1,0 +1,20 @@
+.highscore-table {
+  width: 100%;
+  background-color: black;
+}
+
+.col {
+  border: 1px solid black;
+  padding: 1px 8px;
+}
+
+td {
+  background-color:  white;
+  margin: 5px;
+  height: 50px;
+}
+
+th {
+  background-color: #FC8E30;
+  height: 25px;
+}

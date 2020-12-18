@@ -4,6 +4,8 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { GameContext } from '../../contexts/GameContext';
 import Answer from '../common/Answer/Answer';
 import Button from "../common/Button/Button.jsx";
+import { Main } from "../common/Styles/Styles";
+import UsernameInput from "../common/UsernameInput/UsernameInput.jsx";
 
 export default function Stats() {
   const database = firebase.database();
@@ -12,13 +14,13 @@ export default function Stats() {
   const [username, setUsername] = useState(null);
   let score = 0;
 
-  for (let i = 0; i < answers.length; i++) {
+  for (let i = 0; i < Math.min(answers.length, questions.length); i++) {
     if (answers[i] === questions[i].correct_answer) {
       score++;
     }
   }
 
-  const handleClick = (path) => {
+  const handlePublish = (path) => {
     const payload = {
       username: username,
       score: score,
@@ -27,18 +29,23 @@ export default function Stats() {
     history.push(`./${path}`);
   }
 
+  const handleSkip = (path) => {
+    history.push(`./${path}`);
+  }
+
   useEffect(() => {
     
   }, [])
 
   return (
-    <div>
+    <Main>
+      <h2>Overview</h2>
       {questions ? questions.map((question, index) => (
         <Answer key={index} questionData={question} answer={answers[index]}/>
       )) : <Redirect to="./settings"/>}
-      <label>Username</label>
-      <input onChange={(e) => { setUsername(e.currentTarget.value) }}/>
-      <Button text="Publish" path="highscore" clickHandler={handleClick}/>
-    </div>
+      <UsernameInput username={username} setUsername={setUsername}/>
+      <Button text="Publish" path="highscore" clickHandler={handlePublish}/>
+      <Button text="Skip" path="highscore" clickHandler={handleSkip}/>
+    </Main>
   )
 }

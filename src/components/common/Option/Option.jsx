@@ -1,10 +1,11 @@
 import React from 'react';
+import "./style.css";
 
 export default function Option({answer}) {
   return (
-    <div>
-      <input type="radio" name="answer" value={answer}/>
-      <label htmlFor={answer}>{answer}</label>
-    </div>
+    <>
+      <input className="option-input" type="radio" name="answer" value={answer}/>
+      <label className="option-label" htmlFor={answer} dangerouslySetInnerHTML={{ __html: answer}}></label>
+    </>
   )
 }

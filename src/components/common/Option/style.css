@@ -1,0 +1,11 @@
+.option-label {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.option-input {
+  margin: auto 0;
+  width: 15px;
+  height: 15px;
+}

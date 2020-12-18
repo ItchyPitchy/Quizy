@@ -19,27 +19,30 @@ export default function Counter ({setCounter, duration, handleSubmit}) {
   }, [count, handleSubmit])
 
   return (
-    <div>
-      <p>{count && count}</p>
-      <Clock duration={duration}>
-        <div className="wrapper">
-          <div className="spinner-wrapper">
-            <div className="spinner pie"></div>
-          </div>
-          <div className="filler pie"></div>
-          <div className="mask"></div>
+    <Clock duration={duration}>
+      <div className="wrapper">
+        <div className="spinner-wrapper">
+          <div className="spinner pie"></div>
         </div>
-      </Clock>
-    </div>
+        <div className="filler pie"></div>
+        <div className="mask"></div>
+        <p>{count && count}</p>
+      </div>
+    </Clock>
   )
 }
 
 const Clock = styled.div`
+  display: inline-block;
+  margin-bottom: 80px;
+
   .wrapper {
-  width: 250px;
-  height: 250px;
-  position: relative;
-  background-color: white;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    border-radius: 50%;
+    border: 10px solid black;
+    background-color: white;
   }
 
   .spinner-wrapper {
@@ -75,7 +78,8 @@ const Clock = styled.div`
     width: 50%;
     z-index: 300;
     opacity: 1;
-    background: inherit;
+    background: white;
+    border-radius: 125px 0 0 125px;
     animation: mask ${props => props.duration}s steps(1, end);
   }
 
@@ -85,6 +89,17 @@ const Clock = styled.div`
     position: absolute;
     background: #08C;
     /* border: 10px solid rgba(0,0,0,0.4); */
+  }
+
+  p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 64px;
+    font-weight: 500;
+    margin: 0;
+    z-index: 999;
   }
 
   @keyframes rota {

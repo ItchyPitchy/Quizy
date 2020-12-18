@@ -1,0 +1,20 @@
+.username-input-wrapper {
+  margin: 80px 0 40px;
+}
+
+.user-label, .user-input {
+  height: 30px;
+  font-family: 'Roboto';
+  margin: 0 10px;
+  
+}
+
+.user-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.user-input {
+  padding: 3px 10px;
+  outline: none;
+}

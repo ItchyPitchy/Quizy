@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import styled from "styled-components";
 import { GameContext } from "../../contexts/GameContext";
+import { Main } from "../common/Styles/Styles";
 
 export default function Settings() {
   const { setSettings, setCategory } = useContext(GameContext);
@@ -28,7 +30,7 @@ export default function Settings() {
 
   const changeCategory = (e) => {
     const selectedCategory = e.target.options[e.target.selectedIndex];
-    setCategory(selectedCategory.text.toLowerCase());
+    setCategory(selectedCategory.text);
   }
 
   useEffect(() => {
@@ -39,39 +41,89 @@ export default function Settings() {
   }, []);
 
   return (
-    <div>
-      <form action="./play" onSubmit={(e) => handleSubmit(e)}>
-        <label htmlFor="category-select">Select Category:</label>
-        <select onChange={changeCategory} name="category" id="category-select">
-          <option value="">Any</option>
-          {categories.map((category, index) => (
-            <option key={index} value={category.id}>
-              {category.name}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="difficulty-select">Select Difficulty:</label>
-        <select name="difficulty" id="difficulty-select">
-          <option value="">Any Difficulty</option>
-          {difficulties.map((difficulty, index) => (
-            <option key={index} value={difficulty.id}>
-              {difficulty.name}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="timer">Timer:</label>
-        <input
-          type="range"
-          id="timer"
-          name="timer"
-          min="10"
-          max="50"
-          value={timer}
-          onInput={(e) => setTimer(e.currentTarget.value)}
-        />
-        <span>{timer}sec</span>
+    <Main>
+      <Form action="./play" onSubmit={(e) => handleSubmit(e)}>
+        <div className="input-container">
+          <label htmlFor="category-select">Select Category :</label>
+          <select onChange={changeCategory} name="category" id="category-select">
+            <option value="">Any</option>
+            {categories.map((category, index) => (
+              <option key={index} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+          <label htmlFor="difficulty-select">Select Difficulty :</label>
+          <select name="difficulty" id="difficulty-select">
+            <option value="">Any Difficulty</option>
+            {difficulties.map((difficulty, index) => (
+              <option key={index} value={difficulty.id}>
+                {difficulty.name}
+              </option>
+            ))}
+          </select>
+          <label htmlFor="timer">Timer :</label>
+          <div className="range-wrapper">
+            <input
+              type="range"
+              id="timer"
+              name="timer"
+              min="10"
+              max="50"
+              value={timer}
+              onInput={(e) => setTimer(e.currentTarget.value)}
+            />
+            <span>{timer}sec</span>
+          </div>
+        </div>
         <button>Start Game</button>
-      </form>
-    </div>
+      </Form>
+    </Main>
   );
 }
+
+const Form = styled.form`
+  .input-container {
+    display: grid;
+    grid-template: repeat(3, minmax(30px, 1fr)) / auto 1fr;
+    grid-gap: 1em;
+    margin-bottom: 80px;
+
+    label {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    select {
+      display: flex;
+      align-items: center;
+      font-family: 'Roboto';
+      border: 2px solid black;
+      padding: 0 4px;
+      border-radius: 10px;
+
+      &:active {
+        border-bottom: 0;
+        border-radius: 10px 10px 0 0;
+      }
+    }
+
+    .range-wrapper {
+      display: flex;
+      align-items: center;
+      
+      input {
+        flex-grow: 1;
+      }
+    }
+
+    input:focus, select:focus {
+      outline: none;
+    }
+  }
+  
+`;
