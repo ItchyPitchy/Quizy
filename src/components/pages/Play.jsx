@@ -24,13 +24,14 @@ export default function Play() {
   };
 
   useEffect(() => {
+    setAnswers([]);
     fetch(
       `https://opentdb.com/api.php?amount=10&difficulty=${settings.difficulty}&category=${settings.category}`
     )
       .then((res) => res.json())
       .then((data) => setQuestions(data.results))
       .catch((err) => console.error(err));
-  }, [settings, setQuestions]);
+  }, [settings, setQuestions, setAnswers]);
 
   return (
     <Main>
