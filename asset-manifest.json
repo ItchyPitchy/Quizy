@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Quizy/static/css/main.3d149c1d.chunk.css",
-    "main.js": "/Quizy/static/js/main.c57c4f87.chunk.js",
-    "main.js.map": "/Quizy/static/js/main.c57c4f87.chunk.js.map",
+    "main.js": "/Quizy/static/js/main.f5f73619.chunk.js",
+    "main.js.map": "/Quizy/static/js/main.f5f73619.chunk.js.map",
     "runtime-main.js": "/Quizy/static/js/runtime-main.676acbb9.js",
     "runtime-main.js.map": "/Quizy/static/js/runtime-main.676acbb9.js.map",
-    "static/js/2.5619522f.chunk.js": "/Quizy/static/js/2.5619522f.chunk.js",
-    "static/js/2.5619522f.chunk.js.map": "/Quizy/static/js/2.5619522f.chunk.js.map",
+    "static/js/2.fc05abd2.chunk.js": "/Quizy/static/js/2.fc05abd2.chunk.js",
+    "static/js/2.fc05abd2.chunk.js.map": "/Quizy/static/js/2.fc05abd2.chunk.js.map",
     "static/js/3.0e19d370.chunk.js": "/Quizy/static/js/3.0e19d370.chunk.js",
     "static/js/3.0e19d370.chunk.js.map": "/Quizy/static/js/3.0e19d370.chunk.js.map",
     "index.html": "/Quizy/index.html",
     "static/css/main.3d149c1d.chunk.css.map": "/Quizy/static/css/main.3d149c1d.chunk.css.map",
-    "static/js/2.5619522f.chunk.js.LICENSE.txt": "/Quizy/static/js/2.5619522f.chunk.js.LICENSE.txt"
+    "static/js/2.fc05abd2.chunk.js.LICENSE.txt": "/Quizy/static/js/2.fc05abd2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.676acbb9.js",
-    "static/js/2.5619522f.chunk.js",
+    "static/js/2.fc05abd2.chunk.js",
     "static/css/main.3d149c1d.chunk.css",
-    "static/js/main.c57c4f87.chunk.js"
+    "static/js/main.f5f73619.chunk.js"
   ]
 }
