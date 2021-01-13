@@ -17,16 +17,16 @@ export default function Router() {
     <div>
       <GameContext.Provider value={{settings, setSettings, questions, setQuestions, answers, setAnswers, category, setCategory}}>
         <Switch>
-          <Route path="/settings">
+          <Route path="./settings">
             <Settings/>
           </Route>
-          <Route path="/play">
+          <Route path="./play">
             <Play/>
           </Route>
-          <Route path="/stats">
+          <Route path="./stats">
             <Stats/>
           </Route>
-          <Route path="/highscore">
+          <Route path="./highscore">
             <Highscore/>
           </Route>
           <Route path="/">
